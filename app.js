@@ -25,15 +25,13 @@ require([
 			store: new ObjectStore({ objectStore: store }),
 			query: { name: '*' },
 			structure: [
-				{name: "Код", field: "code", width: "15%", editable: true },
-				{name: "Бренд", field: "brand", width: "15%", editable: true },
-				{name: "Модель", field: "model", width: "15%", editable: true },
-				{name: "Комплектация", field: "kit", width: "15%", editable: true },
-				{name: "Год от", field: "year_from", width: "15%", editable: true },
-				{name: "Год до", field: "year_to", width: "15%", editable: true }
+				{name: "Code", field: "code", width: "15%", editable: true },
+				{name: "Brand", field: "brand", width: "15%", editable: true },
+				{name: "Model", field: "model", width: "15%", editable: true },
+				{name: "Kit", field: "kit", width: "15%", editable: true },
+				{name: "From", field: "year_from", width: "15%", editable: true },
+				{name: "To", field: "year_to", width: "15%", editable: true }
 			],
-			rowsPerPage: 10,
-			keepRows: 20,
 			plugins: { filter: true }
 		}, "grid" );
 
@@ -41,6 +39,12 @@ require([
 		console.log( 'ololo', arguments );
 	});
 
+    grid.startup();
+
+	setTimeout( function(){
+		dijit.byId('main_layout').resize();
+		console.log( 'resize' );
+	}, 1000 );
     grid.startup();
 
 });
