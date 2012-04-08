@@ -5,7 +5,7 @@
 
 require([
 	'dojo/parser',
-	'../store.js',
+	'./store.js',
     "dojox/grid/DataGrid",
 	"dojo/store/Memory",
 	"dojo/data/ObjectStore",
