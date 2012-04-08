@@ -46,7 +46,10 @@ require([
 			structure: [
 				{name: "Name", field: "name", width: "50%", editable: true },
 				{name: "Abbreviation", field: "abb", width: "20%", editable: true },
-				{name: "Booltest", field: "test", width: "20%", editable: true, cellType: 'dojox.grid.cells.Bool' }
+				{
+					name: "Booltest", field: "test", width: "20%", editable: true, cellType: 'dojox.grid.cells.Bool',
+					put: function(  ){ console.log( arguments); }
+				}
 			],
 			rowsPerPage: 10,
 			keepRows: 20,
