@@ -16,6 +16,11 @@
 
 <body class="claro">
 
+
+<script type="text/javascript">
+	var cars = <?= json_encode($data['cars']) ?>;
+</script>
+
 <div data-dojo-type="dijit.layout.BorderContainer" id="main_layout">
 	<div
 		id="top"

@@ -12,44 +12,25 @@ require([
     "dojox/grid/EnhancedGrid",
 	"dojox/grid/enhanced/plugins/Filter",
 	'dojo/domReady!'
-], function( parser, Store, DataGrid, Memory, ObjectStore, EnhancedGrid, Filter ){
+], function( parser, Store, DataGrid, Memory, ObjectStore, EnhancedGrid ){
 
 	parser.parse( document.body );
 
 	var store = new Store({
-			data: [
-				{ name: 'ololo', abb: 'OlO', test: false },
-				{ name: 'trololo', abb: 'TRoL', test: true },
-				{ name: 'BulBul', abb: 'BB', test: true },
-				{ name: 'olol1o', abb: 'OlO', test: true },
-				{ name: 'trolo32lo', abb: 'TRoL', test: false },
-				{ name: 'BulBu4l', abb: 'BB', test: false },
-				{ name: 'ololo5', abb: 'OlO', test: false },
-				{ name: '6trololo', abb: 'TRoL', test: true },
-				{ name: 'B7ulBul', abb: 'BB', test: false },
-				{ name: 'ol8olo', abb: 'OlO', test: true },
-				{ name: 'tro9lolo', abb: 'TRoL', test: false },
-				{ name: 'BulB0ul', abb: 'BB', test: false },
-				{ name: 'o-lolo', abb: 'OlO', test: true },
-				{ name: 'tro9lolo', abb: 'TRoL', test: false },
-				{ name: 'Bu=lBul', abb: 'BB', test: false },
-				{ name: 'olol=o', abb: 'OlO', test: false },
-				{ name: 'trol67olo', abb: 'TRoL', test: true },
-				{ name: 'BulB85ul', abb: 'BB', test: false }
-			],
-			idProperty: 'name'
+			data: this.cars,
+			idProperty: 'code'
 		}),
 
 		grid = new EnhancedGrid({
 			store: new ObjectStore({ objectStore: store }),
 			query: { name: '*' },
 			structure: [
-				{name: "Name", field: "name", width: "50%", editable: true },
-				{name: "Abbreviation", field: "abb", width: "20%", editable: true },
-				{
-					name: "Booltest", field: "test", width: "20%", editable: true, cellType: 'dojox.grid.cells.Bool',
-					put: function(  ){ console.log( arguments); }
-				}
+				{name: "Код", field: "code", width: "15%", editable: true },
+				{name: "Бренд", field: "brand", width: "15%", editable: true },
+				{name: "Модель", field: "model", width: "15%", editable: true },
+				{name: "Комплектация", field: "kit", width: "15%", editable: true },
+				{name: "Год от", field: "year_from", width: "15%", editable: true },
+				{name: "Год до", field: "year_to", width: "15%", editable: true }
 			],
 			rowsPerPage: 10,
 			keepRows: 20,
